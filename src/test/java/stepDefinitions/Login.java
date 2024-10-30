@@ -12,46 +12,46 @@ import java.net.MalformedURLException;
 
 public class Login extends VisionBase {
 
+	PageObjectManager pom = new PageObjectManager();
+
 	@Given("I launch the app")
 	public void iLaunchTheApp() throws MalformedURLException, InterruptedException {
 
-		PageObjectManager pom = new PageObjectManager();
-		pom.getVisionAppLaunch(getDriver()).setupAppLaunch();
+		pom.getVisionAppLaunch(driver).setupAppLaunch();
 		Thread.sleep(10000);
 
 		// Click on the "Live Classroom" Next button
-		pom.getLoginPage(getDriver()).clickOnNextLiveClassroom();
+		pom.getLoginPage(driver).clickOnNextLiveClassroom();
 		Thread.sleep(2000);
 
 		// Click on the "Performance Analysis" Next button
-		pom.getLoginPage(getDriver()).clickOnNextLivePerformAnalyst();
+		pom.getLoginPage(driver).clickOnNextLivePerformAnalyst();
 		Thread.sleep(2000);
 
 		// Click on the "All India Prelims" Next button
-		pom.getLoginPage(getDriver()).clickOnNextAllIndiaPrlims();
+		pom.getLoginPage(driver).clickOnNextAllIndiaPrlims();
 		Thread.sleep(2000);
 
 		// Click on the "All India Mains" Next button
-		pom.getLoginPage(getDriver()).clickOnNextAllIndiaMains();
+		pom.getLoginPage(driver).clickOnNextAllIndiaMains();
 		Thread.sleep(2000);
 
 		// Click on the "Free Resources" Continue button us
-		pom.getLoginPage(getDriver()).clickOnContinueFreeResources();
+		pom.getLoginPage(driver).clickOnContinueFreeResources();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(getDriver()).touchOnTheScreen();
+		pom.getLoginPage(driver).touchOnTheScreen();
+		Thread.sleep(2000);
 
 	}
 
 	@When("I click on the login button")
 	public void iClickOnTheLoginButton() throws InterruptedException {
 
-		PageObjectManager pom = new PageObjectManager();
-
 		// Click on the "Menu" at bottom
-		pom.getLoginPage(getDriver()).clickOnMenu(); 
+		pom.getLoginPage(driver).clickOnMenu();
 
-		pom.getLoginPage(getDriver()).clickOnLoginButton();
+		pom.getLoginPage(driver).clickOnLoginButton();
 
 		Thread.sleep(4000);
 
@@ -60,22 +60,20 @@ public class Login extends VisionBase {
 	@Then("I should see the login page")
 	public void iShouldSeeTheLoginPage() throws InterruptedException {
 
-		PageObjectManager pom = new PageObjectManager();
-
 		// Click on the "Menu" at bottom
-		pom.getLoginPage(getDriver()).enterUsername(email);
+		pom.getLoginPage(driver).enterUsername(email);
 		Thread.sleep(2000);
 
-		pom.getLoginPage(getDriver()).clickOnPasswordField();
+		pom.getLoginPage(driver).clickOnPasswordField();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(getDriver()).enterPassword(password);
+		pom.getLoginPage(driver).enterPassword(password);
 		Thread.sleep(2000);
 
-		pom.getLoginPage(getDriver()).isWelcomeDisplayedOnLoginScreen();
+		pom.getLoginPage(driver).isWelcomeDisplayedOnLoginScreen();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(getDriver()).clickOnLoginButton();
+		pom.getLoginPage(driver).clickOnLoginButton();
 		Thread.sleep(2000);
 
 	}

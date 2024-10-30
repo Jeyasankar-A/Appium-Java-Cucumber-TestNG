@@ -49,7 +49,7 @@ public class VisionAppBaseClass {
 		// Verify that the app launched
 		System.out.println("Application launched successfully!");
 
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 
 		// Click the "View Full Screen" OK button to proceed
 		// WebElement viewFullScreenGotIt = driver.findElement(By.id("android:id/ok"));

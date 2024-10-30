@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Oct 29 19:49:58 IST 2024</td>
+<td>Started on:</td><td>Wed Oct 30 19:08:22 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (438 ms)</td>
+<tr><td>Total time:</td><td>28 seconds (28708 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -77,9 +77,28 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='runners.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: runners.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Open vision app and click on the login button", "Login functionality"</td>
-<td></td>
-<td>0</td>
-<td>runners.TestNGRunner@25be7b63</td></tr>
+<td><div><pre>java.lang.IllegalArgumentException: Input must be set
+	at org.openqa.selenium.internal.Require.nonNull(Require.java:59)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:97)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:77)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:46)
+	at org.basepackage.VisionBase.waitForElementClickability(VisionBase.java:137)
+	at org.pageclasspackage.LoginPage.clickOnNextLiveClassroom(LoginPage.java:71)
+	at stepDefinitions.Login.iLaunchTheApp(Login.java:25)
+	at ?.I launch the app(file:///E:/Eclipse/FlutterVisionApp/src/test/resources/features/signup.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace150208546", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace150208546'><pre>java.lang.IllegalArgumentException: Input must be set
+	at org.openqa.selenium.internal.Require.nonNull(Require.java:59)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:97)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:77)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:46)
+	at org.basepackage.VisionBase.waitForElementClickability(VisionBase.java:137)
+	at org.pageclasspackage.LoginPage.clickOnNextLiveClassroom(LoginPage.java:71)
+	at stepDefinitions.Login.iLaunchTheApp(Login.java:25)
+	at ?.I launch the app(file:///E:/Eclipse/FlutterVisionApp/src/test/resources/features/signup.feature:4)
+</pre></div></td>
+<td>28</td>
+<td>runners.TestNGRunner@4b520ea8</td></tr>
 </table><p>
 </body>
 </html>

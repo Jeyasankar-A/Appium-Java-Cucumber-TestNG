@@ -13,9 +13,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+
+
 public class LoginPage extends VisionBase {
 
-	  AppiumDriver driver;
+	public  AppiumDriver driver;
 
 	public LoginPage(AppiumDriver driver) {
 		this.driver = driver;
@@ -73,7 +75,7 @@ public class LoginPage extends VisionBase {
 
 	public LoginPage clickOnNextLivePerformAnalyst() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(performAnalysNext,driver);
+		waitForElementClickability(performAnalysNext,driver	);
 		performAnalysNext.click();
 		return this;
 	}
