@@ -24,13 +24,14 @@ import org.testng.annotations.BeforeSuite;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class VisionBase {
 
-	public static AndroidDriver driver;
+	public static WebDriver driver;
 
 	ReadConfig readconfig = new ReadConfig();
 
@@ -47,7 +48,7 @@ public class VisionBase {
 	public String password = readconfig.getAppPassword();
  
 
-	@BeforeSuite(alwaysRun = true)
+//	@BeforeSuite(alwaysRun = true)
 	public void initiateExtentReports() {
 		extentReports = new ExtentReports();
 		ExtentSparkReporter sparkReporter_all = new ExtentSparkReporter("AllTests.html");
@@ -58,18 +59,18 @@ public class VisionBase {
 		extentReports.setSystemInfo("Testing Framework", "Cucumber");
 	}
 
-	@AfterSuite(alwaysRun = true)
+//	@AfterSuite(alwaysRun = true)
 	public void generateExtentReport() {
 		extentReports.flush();
 	}
 
-	@BeforeMethod
+	//@BeforeMethod
 	public void setupTest(Method method) {
 		extentTest = extentReports.createTest(method.getName());
 	}
 
 	// To attach Screenshot to Extent Report
-	@AfterMethod(alwaysRun = true)
+//	@AfterMethod(alwaysRun = true)
 	public void checkStatus(Method m, ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -96,7 +97,7 @@ public class VisionBase {
 	}
 
 	// to capture the screenshot
-	public static String captureScreenshot(String fileName, AndroidDriver driver) {
+	public static String captureScreenshot(String fileName, WebDriver driver) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
 		File destinationFile = new File("./reports/" + fileName);
@@ -110,18 +111,18 @@ public class VisionBase {
 
 	}
 
-	public static String captureScreenShotBase64(AppiumDriver driver2) {
+	public static String captureScreenShotBase64(WebDriver driver2) {
 		TakesScreenshot ts = (TakesScreenshot) driver2;
 		return ts.getScreenshotAs(OutputType.BASE64);
 	}
 
 
-	protected void waitForElementClickability(WebElement element, AppiumDriver driver) {
+	protected void waitForElementClickability(WebElement element, WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	protected void waitForSingleElementVisibility(WebElement element, AppiumDriver driver) {
+	protected void waitForSingleElementVisibility(WebElement element, WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}

@@ -130,13 +130,11 @@
                   </a> <!-- runScenario("Open vision app and click on the login button", "Login functionality") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Open vision app and click on the login button","Login functionality")</span>
-                  <div class="stack-trace">java.lang.IllegalArgumentException: Input must be set
-	at org.openqa.selenium.internal.Require.nonNull(Require.java:59)
-	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:97)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:77)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:46)
-	at org.basepackage.VisionBase.waitForElementClickability(VisionBase.java:121)
-	at org.pageclasspackage.LoginPage.clickOnNextLiveClassroom(LoginPage.java:71)
+                  <div class="stack-trace">java.lang.NullPointerException
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy29.click(Unknown Source)
+	at org.pageclasspackage.LoginPage.clickOnNextLiveClassroom(LoginPage.java:73)
 	at stepDefinitions.Login.iLaunchTheApp(Login.java:24)
 	at ✽.I launch the app(file:///E:/Eclipse/FlutterVisionApp/src/test/resources/features/signup.feature:4)
 
@@ -211,12 +209,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'runners.TestNGRunner')
-data.setCell(0, 3, 27180);
+data.setCell(0, 3, 30444);
 window.suiteTableData['Cucumber_Test_Suite']= { tableData: data, tableDiv: 'times-div-Cucumber_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 27 seconds</span>
+              <span class="suite-total-time">Total running time: 30 seconds</span>
               <div id="times-div-Cucumber_Test_Suite">
               </div> <!-- times-div-Cucumber_Test_Suite -->
             </div> <!-- times-div -->
@@ -244,18 +242,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runners.TestNGRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@64502326)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@4cdba2ed)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Open vision app and click on the login button", "Login functionality")</span>
-                <span class="method-start">363 ms</span>
+                <span class="method-start">816 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">27548 ms</span>
+                <span class="method-start">31269 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

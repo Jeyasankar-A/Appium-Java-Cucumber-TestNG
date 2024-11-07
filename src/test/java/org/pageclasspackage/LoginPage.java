@@ -5,10 +5,12 @@ import java.util.Arrays;
 
 import org.basepackage.VisionBase;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.AppiumDriver;
@@ -17,41 +19,40 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginPage extends VisionBase {
 
-	public  AppiumDriver driver;
+	public  WebDriver driver;
 
-	public LoginPage(AppiumDriver driver) {
-		this.driver = driver;
+	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement liveClassroomNext;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement performAnalysNext;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement allIndiaPrlimsNext;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]") 
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]") 
 	private WebElement allIndiaMainsNext;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc='Continue']")
+	@FindBy(xpath = "//android.widget.Button[@content-desc='Continue']")
 	private WebElement freeResourcesContinue;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView)[11]")
+	@FindBy(xpath = "(//android.widget.ImageView)[11]")
 	private WebElement menuAtBottom;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Login\"]")
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Login\"]")
 	private WebElement login;
 
-	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.widget.EditText[1]")
+	@FindBy(xpath = "//android.widget.ScrollView/android.widget.EditText[1]")
 	private WebElement username;
 
-	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.widget.EditText[2]")
+	@FindBy(xpath = "//android.widget.ScrollView/android.widget.EditText[2]")
 	private WebElement password;
 
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Welcome Back!\"]")
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Welcome Back!\"]")
 	private WebElement welcome;
 	
 	public void clickOnNextLiveClassroom11() {
@@ -68,7 +69,7 @@ public class LoginPage extends VisionBase {
 
 	public LoginPage clickOnNextLiveClassroom() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(liveClassroomNext,driver);
+//		waitForElementClickability(liveClassroomNext,driver);
 		liveClassroomNext.click();
 		return this;
 	}

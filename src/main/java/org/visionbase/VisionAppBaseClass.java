@@ -31,8 +31,8 @@ public class VisionAppBaseClass {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "14.0");
 		capabilities.setCapability(MobileCapabilityType.APP, "com.vision.visionias.app");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Moto g24");
-		capabilities.setCapability(MobileCapabilityType.UDID, "ZD222LFXGS");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Vivo");
+		capabilities.setCapability(MobileCapabilityType.UDID, "10BE6Q1NGD000MR");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
 
 		// Automatically grant app permissions

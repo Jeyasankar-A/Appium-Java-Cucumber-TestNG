@@ -21,26 +21,26 @@ public class Login extends VisionBase {
 		Thread.sleep(10000);
 
 		// Click on the "Live Classroom" Next button
-		pom.getLoginPage(driver).clickOnNextLiveClassroom();
+		pom.getLoginPage().clickOnNextLiveClassroom();
 		Thread.sleep(2000);
 
 		// Click on the "Performance Analysis" Next button
-		pom.getLoginPage(driver).clickOnNextLivePerformAnalyst();
+		pom.getLoginPage().clickOnNextLivePerformAnalyst();
 		Thread.sleep(2000);
 
 		// Click on the "All India Prelims" Next button
-		pom.getLoginPage(driver).clickOnNextAllIndiaPrlims();
+		pom.getLoginPage().clickOnNextAllIndiaPrlims();
 		Thread.sleep(2000);
 
 		// Click on the "All India Mains" Next button
-		pom.getLoginPage(driver).clickOnNextAllIndiaMains();
+		pom.getLoginPage().clickOnNextAllIndiaMains();
 		Thread.sleep(2000);
 
 		// Click on the "Free Resources" Continue button us
-		pom.getLoginPage(driver).clickOnContinueFreeResources();
+		pom.getLoginPage().clickOnContinueFreeResources();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(driver).touchOnTheScreen();
+		pom.getLoginPage().touchOnTheScreen();
 		Thread.sleep(2000);
 
 	}
@@ -49,9 +49,9 @@ public class Login extends VisionBase {
 	public void iClickOnTheLoginButton() throws InterruptedException {
 
 		// Click on the "Menu" at bottom
-		pom.getLoginPage(driver).clickOnMenu();
+		pom.getLoginPage().clickOnMenu();
 
-		pom.getLoginPage(driver).clickOnLoginButton();
+		pom.getLoginPage().clickOnLoginButton();
 
 		Thread.sleep(4000);
 
@@ -61,20 +61,21 @@ public class Login extends VisionBase {
 	public void iShouldSeeTheLoginPage() throws InterruptedException {
 
 		// Click on the "Menu" at bottom
-		pom.getLoginPage(driver).enterUsername(email);
+		pom.getLoginPage().enterUsername(email);
 		Thread.sleep(2000);
 
-		pom.getLoginPage(driver).clickOnPasswordField();
+		pom.getLoginPage().clickOnPasswordField();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(driver).enterPassword(password);
+		pom.getLoginPage().enterPassword(password);
 		Thread.sleep(2000);
 
-		pom.getLoginPage(driver).isWelcomeDisplayedOnLoginScreen();
+		pom.getLoginPage().isWelcomeDisplayedOnLoginScreen();
 		Thread.sleep(2000);
 
-		pom.getLoginPage(driver).clickOnLoginButton();
+		pom.getLoginPage().clickOnLoginButton();
 		Thread.sleep(2000);
 
 	}
+
 }
