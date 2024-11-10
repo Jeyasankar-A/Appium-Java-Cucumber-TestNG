@@ -13,17 +13,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-
-
 public class LoginPage extends VisionBase {
 
-	public  WebDriver driver;
+	public WebDriver driver;
 
-	public LoginPage() {
-		PageFactory.initElements(driver, this);
-	}
+	public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
 	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement liveClassroomNext;
@@ -34,7 +31,7 @@ public class LoginPage extends VisionBase {
 	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement allIndiaPrlimsNext;
 
-	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]") 
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Next\"]")
 	private WebElement allIndiaMainsNext;
 
 	@FindBy(xpath = "//android.widget.Button[@content-desc='Continue']")
@@ -54,92 +51,77 @@ public class LoginPage extends VisionBase {
 
 	@FindBy(xpath = "//android.view.View[@content-desc=\"Welcome Back!\"]")
 	private WebElement welcome;
-	
-	public void clickOnNextLiveClassroom11() {
-	    if (liveClassroomNext != null) {
-	        System.out.println("Next class button is initialized.");
-	        waitForElementClickability(liveClassroomNext,driver);
-	        liveClassroomNext.click();
-	    } else {
-	        System.out.println("Next class button is NOT initialized.");
-	        throw new RuntimeException("Next class button is not initialized.");
-	    }
-	}
 
 
 	public LoginPage clickOnNextLiveClassroom() {
 		// Wait for a maximum of 30 seconds
-//		waitForElementClickability(liveClassroomNext,driver);
+		waitForElementClickability(liveClassroomNext,driver);
 		liveClassroomNext.click();
 		return this;
 	}
 
 	public LoginPage clickOnNextLivePerformAnalyst() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(performAnalysNext,driver	);
+		waitForElementClickability(performAnalysNext, driver);
 		performAnalysNext.click();
 		return this;
 	}
 
 	public LoginPage clickOnNextAllIndiaPrlims() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(allIndiaPrlimsNext,driver);
+		waitForElementClickability(allIndiaPrlimsNext, driver);
 		allIndiaPrlimsNext.click();
 		return this;
 	}
 
 	public LoginPage clickOnNextAllIndiaMains() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(allIndiaMainsNext,driver);
+		waitForElementClickability(allIndiaMainsNext, driver);
 		allIndiaMainsNext.click();
 		return this;
 	}
 
 	public LoginPage clickOnContinueFreeResources() {
 		// Wait for a maximum of 30 seconds
-		waitForElementClickability(freeResourcesContinue,driver);
+		waitForElementClickability(freeResourcesContinue, driver);
 		freeResourcesContinue.click();
 		return this;
 	}
 
 	public boolean isWelcomeDisplayedOnLoginScreen() {
 		// Wait for a maximum of 30 seconds for the banner text to be displayed
-		waitForSingleElementVisibility(welcome,driver);
+		waitForSingleElementVisibility(welcome, driver);
 		welcome.click();
 		return welcome.isDisplayed();
 	}
 
 	public LoginPage clickOnMenu() {
 		// Wait for a maximum of 30 seconds for the banner text to be displayed
-		waitForElementClickability(menuAtBottom,driver);
+		waitForElementClickability(menuAtBottom, driver);
 		menuAtBottom.click();
-		String base = captureScreenShotBase64(driver);
-		extentTest.addScreenCaptureFromBase64String(base, "Screenshot of login page");
+//		String base = captureScreenShotBase64(driver);
+//		extentTest.addScreenCaptureFromBase64String(base, "Screenshot of login page");
 		return this;
 	}
 
 	// Entering Email Address in the Login page
 	public LoginPage enterUsername(String email) {
-		waitForSingleElementVisibility(username,driver);
+		waitForSingleElementVisibility(username, driver);
 		username.sendKeys(email);
-		String val = username.getAttribute("value");
-		extentTest.info("Entered Email  : " + val);
 		return this;
 	}
 
 	public LoginPage clickOnPasswordField() {
 		// Wait for a maximum of 30 seconds for the banner text to be displayed
-		waitForElementClickability(password,driver);
+		waitForElementClickability(password, driver);
 		password.click();
 		return this;
 	}
 
 	// Entering password in the Login page
 	public LoginPage enterPassword(String pwd) {
-		waitForSingleElementVisibility(password,driver);
+		waitForSingleElementVisibility(password, driver);
 		password.sendKeys(pwd);
-		String val = password.getAttribute("value");
-		extentTest.info("Entered password  : " + val);
 		return this;
 	}
 
@@ -171,7 +153,7 @@ public class LoginPage extends VisionBase {
 			((RemoteWebDriver) driver).perform(Arrays.asList(tapSequence));
 
 			// Optionally add a small delay between taps
-			Thread.sleep(2000); // Adjust the sleep time as needed
+			Thread.sleep(1000); // Adjust the sleep time as needed
 		}
 
 		return this;
@@ -180,10 +162,10 @@ public class LoginPage extends VisionBase {
 
 	public LoginPage clickOnLoginButton() {
 		// Wait for a maximum of 30 seconds for the banner text to be displayed
-		waitForElementClickability(login,driver);
+		waitForElementClickability(login, driver);
 		login.click();
-		String base = captureScreenShotBase64(driver);
-		extentTest.addScreenCaptureFromBase64String(base, "Screenshot of login page");
+//		String base = captureScreenShotBase64(driver);
+//		extentTest.addScreenCaptureFromBase64String(base, "Screenshot of login page");
 		return this;
 	}
 

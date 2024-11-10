@@ -7,6 +7,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.basepackage.VisionBase;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import static org.testng.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 
@@ -17,65 +21,60 @@ public class Login extends VisionBase {
 	@Given("I launch the app")
 	public void iLaunchTheApp() throws MalformedURLException, InterruptedException {
 
-		pom.getVisionAppLaunch(driver).setupAppLaunch();
-		Thread.sleep(10000);
+		pom.getVisionAppLaunch(getDriver()).setupAppLaunch();
+		Thread.sleep(5000);
 
 		// Click on the "Live Classroom" Next button
-		pom.getLoginPage().clickOnNextLiveClassroom();
+		pom.getLoginPage(getDriver()).clickOnNextLiveClassroom();
 		Thread.sleep(2000);
 
 		// Click on the "Performance Analysis" Next button
-		pom.getLoginPage().clickOnNextLivePerformAnalyst();
+		pom.getLoginPage(getDriver()).clickOnNextLivePerformAnalyst();
 		Thread.sleep(2000);
 
 		// Click on the "All India Prelims" Next button
-		pom.getLoginPage().clickOnNextAllIndiaPrlims();
+		pom.getLoginPage(getDriver()).clickOnNextAllIndiaPrlims();
 		Thread.sleep(2000);
 
 		// Click on the "All India Mains" Next button
-		pom.getLoginPage().clickOnNextAllIndiaMains();
+		pom.getLoginPage(getDriver()).clickOnNextAllIndiaMains();
 		Thread.sleep(2000);
 
 		// Click on the "Free Resources" Continue button us
-		pom.getLoginPage().clickOnContinueFreeResources();
+		pom.getLoginPage(getDriver()).clickOnContinueFreeResources();
 		Thread.sleep(2000);
 
-		pom.getLoginPage().touchOnTheScreen();
-		Thread.sleep(2000);
+		pom.getLoginPage(getDriver()).touchOnTheScreen();
+		Thread.sleep(4000);
 
 	}
 
 	@When("I click on the login button")
 	public void iClickOnTheLoginButton() throws InterruptedException {
-
-		// Click on the "Menu" at bottom
-		pom.getLoginPage().clickOnMenu();
-
-		pom.getLoginPage().clickOnLoginButton();
-
-		Thread.sleep(4000);
+		
+		pom.getLoginPage(getDriver()).clickOnMenu();
+		
+		pom.getLoginPage(getDriver()).clickOnLoginButton();
+		Thread.sleep(4000); // Ensure the next screen loads
 
 	}
 
 	@Then("I should see the login page")
 	public void iShouldSeeTheLoginPage() throws InterruptedException {
-
-		// Click on the "Menu" at bottom
-		pom.getLoginPage().enterUsername(email);
+		pom.getLoginPage(getDriver()).enterUsername(email);
 		Thread.sleep(2000);
 
-		pom.getLoginPage().clickOnPasswordField();
+		pom.getLoginPage(getDriver()).clickOnPasswordField();
 		Thread.sleep(2000);
 
-		pom.getLoginPage().enterPassword(password);
+		pom.getLoginPage(getDriver()).enterPassword(password);
 		Thread.sleep(2000);
 
-		pom.getLoginPage().isWelcomeDisplayedOnLoginScreen();
-		Thread.sleep(2000);
+		// Check if welcome message is displayed
+		assertTrue(pom.getLoginPage(getDriver()).isWelcomeDisplayedOnLoginScreen());
 
-		pom.getLoginPage().clickOnLoginButton();
+		pom.getLoginPage(getDriver()).clickOnLoginButton();
 		Thread.sleep(2000);
-
 	}
 
 }

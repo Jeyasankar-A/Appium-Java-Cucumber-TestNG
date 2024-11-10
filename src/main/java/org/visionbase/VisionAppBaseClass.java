@@ -32,7 +32,7 @@ public class VisionAppBaseClass {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "14.0");
 		capabilities.setCapability(MobileCapabilityType.APP, "com.vision.visionias.app");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Vivo");
-		capabilities.setCapability(MobileCapabilityType.UDID, "10BE6Q1NGD000MR");
+		capabilities.setCapability(MobileCapabilityType.UDID, "ZD222H35DZ");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
 
 		// Automatically grant app permissions
@@ -123,7 +123,7 @@ public class VisionAppBaseClass {
 		WebElement username = driver.findElement(By.xpath("//android.widget.ScrollView/android.widget.EditText[1]"));
 		username.sendKeys("jeyasankar@visionias.in");
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		WebElement password = driver.findElement(By.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
 		password.click();

@@ -31,7 +31,15 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class VisionBase {
 
-	public static WebDriver driver;
+	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+	public void setDriver(WebDriver driver) {
+		this.driver.set(driver);
+	}
+
+	public WebDriver getDriver() {
+		return this.driver.get();
+	}
 
 	ReadConfig readconfig = new ReadConfig();
 
@@ -46,7 +54,6 @@ public class VisionBase {
 	public String url = readconfig.getAppURL();
 	public String email = readconfig.getAppUsername();
 	public String password = readconfig.getAppPassword();
- 
 
 //	@BeforeSuite(alwaysRun = true)
 	public void initiateExtentReports() {
@@ -64,7 +71,7 @@ public class VisionBase {
 		extentReports.flush();
 	}
 
-	//@BeforeMethod
+	// @BeforeMethod
 	public void setupTest(Method method) {
 		extentTest = extentReports.createTest(method.getName());
 	}
@@ -78,8 +85,7 @@ public class VisionBase {
 			String screenshotPath = null;
 
 			screenshotPath = captureScreenshot(
-					result.getTestContext().getName() + "_" + result.getMethod().getMethodName() + ".jpg",
-					driver);
+					result.getTestContext().getName() + "_" + result.getMethod().getMethodName() + ".jpg", getDriver());
 
 			extentTest.addScreenCaptureFromPath(screenshotPath);
 
@@ -115,7 +121,6 @@ public class VisionBase {
 		TakesScreenshot ts = (TakesScreenshot) driver2;
 		return ts.getScreenshotAs(OutputType.BASE64);
 	}
-
 
 	protected void waitForElementClickability(WebElement element, WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
