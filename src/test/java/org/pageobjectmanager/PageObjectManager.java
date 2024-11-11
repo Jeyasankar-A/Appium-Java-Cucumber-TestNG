@@ -15,7 +15,7 @@ public class PageObjectManager {
 	}
 
     public VisionAppLaunch getVisionAppLaunch(WebDriver driver) {
-		return (visionAppLaunch == null) ? visionAppLaunch = new VisionAppLaunch(driver) : visionAppLaunch;
+		return (visionAppLaunch == null) ? visionAppLaunch = new VisionAppLaunch() : visionAppLaunch;
 	}
     
 }

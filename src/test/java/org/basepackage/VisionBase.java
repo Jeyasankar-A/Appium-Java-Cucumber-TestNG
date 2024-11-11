@@ -31,15 +31,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class VisionBase {
 
-	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
-	public void setDriver(WebDriver driver) {
-		this.driver.set(driver);
-	}
-
-	public WebDriver getDriver() {
-		return this.driver.get();
-	}
+	public static WebDriver driver;
 
 	ReadConfig readconfig = new ReadConfig();
 
@@ -85,7 +77,7 @@ public class VisionBase {
 			String screenshotPath = null;
 
 			screenshotPath = captureScreenshot(
-					result.getTestContext().getName() + "_" + result.getMethod().getMethodName() + ".jpg", getDriver());
+					result.getTestContext().getName() + "_" + result.getMethod().getMethodName() + ".jpg", driver);
 
 			extentTest.addScreenCaptureFromPath(screenshotPath);
 
